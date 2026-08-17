@@ -36,6 +36,12 @@ const eslintConfig = defineConfig([
       },
     },
   },
+  {
+    files: ["desktop/**/*.cjs", "forge.config.cjs"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

@@ -41,6 +41,20 @@ npm run lint
 npm run build
 ```
 
+## 便攜桌面版
+
+桌面版會把分析台與本機服務一起封裝；使用者不需要另外安裝 Node.js，也不需要在命令列操作。桌面程式只在 `127.0.0.1` 的隨機連接埠提供目前工作階段使用，關閉程式後服務隨即停止。
+
+開發者可執行：
+
+```bash
+npm run desktop
+npm run desktop:make -- --platform=darwin --arch=arm64
+npm run desktop:make -- --platform=win32 --arch=x64
+```
+
+打包結果會出現在 `out/make/`。目前測試包未簽名：macOS 首次開啟時可能需要按住 Control 點擊應用程式並選擇「打開」；Windows 可能顯示 SmartScreen 提醒。正式公開發行前建議完成程式碼簽名。
+
 ## 邀請碼（可選）
 
 預設為公開使用，不需要邀請碼。如需在自己的部署上增加簡單門禁，複製 `.env.example` 為 `.env.local`，並設定一個長且隨機的值：
@@ -61,14 +75,6 @@ SITE_INVITE_CODE=your-long-random-invite-code
 - 請求大小與每日用量上限
 - 日誌中的金鑰與史料遮罩
 - 濫用防護及明確的隱私政策
-
-## 外部開放文獻來源
-
-公開版目前採「使用者自行上傳」方式，不會自動抓取任何第三方網站。
-
-未來若加入中國哲學書電子化計劃（Chinese Text Project），應只使用其[官方 JSON API](https://ctext.org/tools/api/zh)，遵守驗證、速率與資料使用限制，並保留作品、篇章、版本及原頁連結。其網站與內容受版權保護，官方也禁止自動大量下載；「部分底本屬公有領域」不代表整個網站、整理成果、翻譯或資料庫可以任意鏡像或再發布。詳見其[官方常見問答與版權說明](https://ctext.org/faq/zh)。
-
-更穩妥的整合方式是：讓使用者在第三方來源主動選擇一章或少量文本，經官方 API 匯入本機工作區，再交給其自行配置的模型判讀，而不是建立整站副本。
 
 ## 授權
 
