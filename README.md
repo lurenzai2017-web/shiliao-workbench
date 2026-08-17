@@ -54,28 +54,3 @@ npm run desktop:make -- --platform=win32 --arch=x64
 ```
 
 打包結果會出現在 `out/make/`。目前測試包未簽名：macOS 首次開啟時可能需要按住 Control 點擊應用程式並選擇「打開」；Windows 可能顯示 SmartScreen 提醒。正式公開發行前建議完成程式碼簽名。
-
-## 邀請碼（可選）
-
-預設為公開使用，不需要邀請碼。如需在自己的部署上增加簡單門禁，複製 `.env.example` 為 `.env.local`，並設定一個長且隨機的值：
-
-```text
-SITE_INVITE_CODE=your-long-random-invite-code
-```
-
-這是輕量的共享邀請碼，不等同於完整帳號、權限管理或付費配額系統。
-
-## 部署說明
-
-本專案包含伺服器端 API 路由，因此不能直接作為純靜態網站放在 GitHub Pages。GitHub 可以用來公開與協作原始碼；實際網站需要部署到支援 Node.js 或 Cloudflare Workers 相容服務端路由的平台。
-
-公開部署前，建議另行加入：
-
-- 每個 IP／帳號的速率限制
-- 請求大小與每日用量上限
-- 日誌中的金鑰與史料遮罩
-- 濫用防護及明確的隱私政策
-
-## 授權
-
-這個副本尚未附加開源授權。公開 GitHub 儲存庫前，請先選擇合適的程式碼授權（例如 MIT、Apache-2.0 或 AGPL-3.0）；沒有 `LICENSE` 時，公開可見不等於允許他人修改、再發布或部署。
